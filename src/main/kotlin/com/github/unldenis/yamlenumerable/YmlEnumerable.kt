@@ -4,7 +4,7 @@ import org.yaml.snakeyaml.Yaml
 import java.util.*
 import java.util.regex.Pattern
 
-public fun parse(x: String): String {
+fun parse(x: String): String {
 
     val yaml = Yaml()
 
@@ -38,7 +38,7 @@ private fun parseLine(key: String, value: String): String {
     val methodReplaceStr = StringBuilder();
     valueParameters.forEach { methodReplaceStr.append(".replace(\"{$it}\", $it)").append('\n') }
 
-    val newClass = "Message" + "%02d".format(countCustomClass++);
+    val newClass = "Message" + "%03d".format(countCustomClass++);
 
     return """ 
      public static final $newClass $keyFormatted = new $newClass("$key");
